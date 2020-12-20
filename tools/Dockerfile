@@ -1,6 +1,7 @@
 FROM debian:buster
 LABEL maintainer="Boris <borisdr@gmail.com>"
 WORKDIR /root
+COPY README /root/
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
@@ -13,6 +14,8 @@ RUN set -ex; \
         groff \
         traceroute \
         less \
+        jq \
+        netcat \
         openssh-client; \
 	rm -rf /var/lib/apt/lists/*; \
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"; \
