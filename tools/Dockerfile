@@ -1,7 +1,26 @@
+FROM debian:buster as builder
+RUN set -ex; \
+    { \
+      echo -n 'deb http://deb.debian.org/debian buster main' ; \
+      echo -n 'deb-src http://deb.debian.org/debian buster main' ; \
+      echo -n 'deb http://security.debian.org/debian-security buster/updates main' ; \
+      echo -n 'deb-src http://security.debian.org/debian-security buster/updates main' ; \
+      echo -n 'deb http://deb.debian.org/debian buster-updates main'; \
+      echo -n 'deb-src http://deb.debian.org/debian buster-updates main' ; \
+    } | tee /etc/apt/sources.list; \
+    apt-get update; \
+    apt-get install -y build-essential \
+    git \
+    zlib1g-dev ; \
+    git clone https://github.com/rbsec/sslscan.git /tmp/sslscan ;\
+    cd /tmp/sslscan ;\
+    make static
+
 FROM debian:buster
 LABEL maintainer="Boris <borisdr@gmail.com>"
 WORKDIR /root
 COPY README /root/
+COPY --from=builder /tmp/sslscan/sslscan /usr/local/bin/sslscan
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
