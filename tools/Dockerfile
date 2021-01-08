@@ -1,17 +1,18 @@
 FROM debian:buster as builder
 RUN set -ex; \
     { \
-      echo -n 'deb http://deb.debian.org/debian buster main' ; \
-      echo -n 'deb-src http://deb.debian.org/debian buster main' ; \
-      echo -n 'deb http://security.debian.org/debian-security buster/updates main' ; \
-      echo -n 'deb-src http://security.debian.org/debian-security buster/updates main' ; \
-      echo -n 'deb http://deb.debian.org/debian buster-updates main'; \
-      echo -n 'deb-src http://deb.debian.org/debian buster-updates main' ; \
+      echo -n 'deb http://deb.debian.org/debian buster main\n' ; \
+      echo -n 'deb-src http://deb.debian.org/debian buster main\n' ; \
+      echo -n 'deb http://security.debian.org/debian-security buster/updates main\n' ; \
+      echo -n 'deb-src http://security.debian.org/debian-security buster/updates main\n' ; \
+      echo -n 'deb http://deb.debian.org/debian buster-updates main\n'; \
+      echo -n 'deb-src http://deb.debian.org/debian buster-updates main\n' ; \
     } | tee /etc/apt/sources.list; \
+    # curl https://baltocdn.com/helm/signing.asc | apt-key add - ;\
     apt-get update; \
-    apt-get install -y build-essential \
-    git \
-    zlib1g-dev ; \
+    apt-get install -y git \
+	    build-essential \
+	    zlib1g-dev ; \
     git clone https://github.com/rbsec/sslscan.git /tmp/sslscan ;\
     cd /tmp/sslscan ;\
     make static
@@ -37,9 +38,13 @@ RUN set -ex; \
         netcat \
         openssh-client; \
 	rm -rf /var/lib/apt/lists/*; \
+	mkdir tmp ;\
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"; \
   curl "https://releases.hashicorp.com/vault/1.6.0/vault_1.6.0_linux_amd64.zip" -o "vault_1.6.0_linux_amd64.zip"; \
   wget http://packages.azlux.fr/debian/pool/main/g/gping/gping_1.2.0-post_amd64.deb; \
+  wget -qO- "https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz" | tar xz -C tmp/ ;\
+  mv tmp/linux-amd64/helm /usr/local/bin/ ;\
+  rm -rf tmp ;\
   dpkg -i gping_1.2.0-post_amd64.deb; \
   rm -f gping_1.2.0-post_amd64.deb; \
   unzip awscliv2.zip; \
