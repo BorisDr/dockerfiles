@@ -34,6 +34,7 @@ RUN set -ex; \
         groff \
         traceroute \
         less \
+        net-tools \
         jq \
         netcat \
         openssh-client; \
