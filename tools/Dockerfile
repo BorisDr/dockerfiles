@@ -44,6 +44,14 @@ RUN set -ex; \
   curl "https://releases.hashicorp.com/vault/1.6.0/vault_1.6.0_linux_amd64.zip" -o "vault_1.6.0_linux_amd64.zip"; \
   wget http://packages.azlux.fr/debian/pool/main/g/gping/gping_1.2.0-post_amd64.deb; \
   wget -qO- "https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz" | tar xz -C tmp/ ;\
+  wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-shell_4.4.4_amd64.deb" -O /tmp/mongodb-org-shell_4.4.4_amd64.deb ;\
+  wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-tools_4.4.4_amd64.deb" -O /tmp/mongodb-org-tools_4.4.4_amd64.deb ;\
+  wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-database-tools_100.3.0_amd64.deb" -O /tmp/mongodb-database-tools_100.3.0_amd64.deb ;\
+  wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-database-tools-extra_4.4.4_amd64.deb" -O /tmp/mongodb-org-database-tools-extra_4.4.4_amd64.deb ;\
+  dpkg -i /tmp/mongodb-database-tools_100.3.0_amd64.deb ;\
+  dpkg -i /tmp/mongodb-org-database-tools-extra_4.4.4_amd64.deb ;\
+  dpkg -i /tmp/mongodb-org-shell_4.4.4_amd64.deb ;\
+  dpkg -i /tmp/mongodb-org-tools_4.4.4_amd64.deb ;\
   mv tmp/linux-amd64/helm /usr/local/bin/ ;\
   rm -rf tmp ;\
   dpkg -i gping_1.2.0-post_amd64.deb; \
