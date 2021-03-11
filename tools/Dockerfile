@@ -64,6 +64,8 @@ RUN set -ex; \
   rm -rf aws awscliv2.zip; \
   wget -qO- "https://storage.googleapis.com/kubernetes-release/release/v1.17.6/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl ;\
   chmod 777 /usr/local/bin/kubectl; \
+  wget -qO- "https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64" -O /usr/local/bin/hey ;\
+  chmod 777 /usr/local/bin/kubectl; \
   mkdir ~/.aws; \
   echo "PS1='\w\$ '" >> /root/.bashrc; \
   echo "[default]" >> /root/.aws/config; \
