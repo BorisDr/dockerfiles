@@ -31,6 +31,7 @@ RUN set -ex; \
         git \
         unzip \
         dnsutils \
+        redis-tools \
         groff \
         traceroute \
         less \
