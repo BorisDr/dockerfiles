@@ -34,6 +34,7 @@ RUN set -ex; \
         redis-tools \
         groff \
         traceroute \
+        kafkacat \
         less \
         net-tools \
         jq \
