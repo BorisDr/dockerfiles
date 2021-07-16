@@ -1,2 +1,2 @@
 KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-curl --request POST --data '{"jwt": "'"$KUBE_TOKEN"'", "role": "adcollector-k8s-inf-service-adcollector-k8s"}' https://vault-nonprd.devops.pluto.tv/v1/auth/nonprod-use1/login | jq
+curl --request POST --data '{"jwt": "'"$KUBE_TOKEN"'", "role": "adcollector-k8s-inf-service-adcollector-k8s"}' https:// /v1/auth/nonprod-use1/login | jq

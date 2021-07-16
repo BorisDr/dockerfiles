@@ -43,8 +43,8 @@ RUN set -ex; \
 	rm -rf /var/lib/apt/lists/*; \
 	mkdir tmp ;\
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"; \
-  curl "https://releases.hashicorp.com/vault/1.6.0/vault_1.6.0_linux_amd64.zip" -o "vault_1.6.0_linux_amd64.zip"; \
-  wget -qO- "https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz" | tar xz -C tmp/ ;\
+  curl "https://releases.hashicorp.com/vault/1.7.1/vault_1.7.1_linux_amd64.zip" -o "vault_1.7.1_linux_amd64.zip"; \
+  wget -qO- "https://get.helm.sh/helm-v3.5.4-linux-amd64.tar.gz" | tar xz -C tmp/ ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-shell_4.4.4_amd64.deb" -O /tmp/mongodb-org-shell_4.4.4_amd64.deb ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-tools_4.4.4_amd64.deb" -O /tmp/mongodb-org-tools_4.4.4_amd64.deb ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-database-tools_100.3.0_amd64.deb" -O /tmp/mongodb-database-tools_100.3.0_amd64.deb ;\
@@ -61,7 +61,7 @@ RUN set -ex; \
   rm -f vault_1.6.0_linux_amd64.zip; \
   ./aws/install; \
   rm -rf aws awscliv2.zip; \
-  wget -qO- "https://storage.googleapis.com/kubernetes-release/release/v1.17.6/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl ;\
+  wget -qO- "https://storage.googleapis.com/kubernetes-release/release/v1.19.8/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl ;\
   chmod 777 /usr/local/bin/kubectl; \
   wget -qO- "https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64" -O /usr/local/bin/hey ;\
   chmod 777 /usr/local/bin/hey; \
