@@ -56,9 +56,9 @@ RUN set -ex; \
   mv tmp/linux-amd64/helm /usr/local/bin/ ;\
   rm -rf tmp ;\
   unzip awscliv2.zip; \
-  unzip vault_1.6.0_linux_amd64.zip; \
+  unzip vault_1.7.1_linux_amd64.zip; \
   mv vault /usr/local/bin/vault; \
-  rm -f vault_1.6.0_linux_amd64.zip; \
+  rm -f vault_1.7.1_linux_amd64.zip; \
   ./aws/install; \
   rm -rf aws awscliv2.zip; \
   wget -qO- "https://storage.googleapis.com/kubernetes-release/release/v1.19.8/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl ;\
