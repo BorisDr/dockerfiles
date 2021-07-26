@@ -39,6 +39,7 @@ RUN set -ex; \
         net-tools \
         jq \
         netcat \
+        tcpdump \
         openssh-client; \
 	rm -rf /var/lib/apt/lists/*; \
 	mkdir tmp ;\
