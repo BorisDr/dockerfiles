@@ -16,12 +16,16 @@ RUN set -ex; \
     git clone https://github.com/rbsec/sslscan.git /tmp/sslscan ;\
     cd /tmp/sslscan ;\
     make static
+RUN WRK_VERSION=4.0.2 && \
+cd /tmp && git clone -b ${WRK_VERSION} https://github.com/wg/wrk
+RUN cd /tmp/wrk && make
 
 FROM debian:buster
 LABEL maintainer="Boris <borisdr@gmail.com>"
 WORKDIR /root
 COPY README /root/
 COPY --from=builder /tmp/sslscan/sslscan /usr/local/bin/sslscan
+COPY --from=builder /tmp/wrk/wrk /usr/local/bin/
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
