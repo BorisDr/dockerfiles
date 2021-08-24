@@ -1,8 +1,7 @@
-name: build tools
+name: build light tools
 
 on:
   push:
-    branches: master
     paths:
       - tools-light/**
 

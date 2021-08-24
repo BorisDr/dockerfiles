@@ -2,7 +2,6 @@ name: build tools
 
 on:
   push:
-    branches: master
     paths:
       - tools/**
 
