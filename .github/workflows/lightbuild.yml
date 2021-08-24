@@ -4,14 +4,14 @@ on:
   push:
     branches: master
     paths:
-      - tools/**
+      - tools-light/**
 
 jobs:
   main:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: tools
+        working-directory: tools-light
     steps:
       -
         name: Checkout
@@ -34,9 +34,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: tools
-          file: tools/Dockerfile
-          tags: borisdr/tools:latest
+          context: tools-light
+          file: tools-light/Dockerfile
+          tags: borisdr/tools-light:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
