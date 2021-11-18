@@ -22,7 +22,6 @@ LABEL maintainer="Boris <borisdr@gmail.com>"
 WORKDIR /root
 COPY README /root/
 COPY --from=builder /tmp/sslscan/sslscan /usr/local/bin/sslscan
-COPY --from=builder /tmp/wrk/wrk /usr/local/bin/
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
