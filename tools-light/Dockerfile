@@ -36,6 +36,7 @@ RUN set -ex; \
         less \
         net-tools \
         jq \
+        vim \
         netcat \
         tcpdump \
         openssh-client; \

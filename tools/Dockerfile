@@ -33,6 +33,7 @@ RUN set -ex; \
         dnsutils \
         redis-tools \
         groff \
+        vim \
         traceroute \
         kafkacat \
         less \
