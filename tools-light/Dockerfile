@@ -51,7 +51,7 @@ RUN set -ex; \
   rm -f vault_1.7.1_linux_amd64.zip; \
   ./aws/install; \
   rm -rf aws awscliv2.zip; \
-  wget -qO- "https://storage.googleapis.com/kubernetes-release/release/v1.19.8/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl ;\
+  wget -qO- "https://storage.googleapis.com/kubernetes-release/release/v1.20.7/bin/linux/amd64/kubectl" -O /usr/local/bin/kubectl ;\
   chmod 777 /usr/local/bin/kubectl; \
   wget -qO- "https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64" -O /usr/local/bin/hey ;\
   chmod 777 /usr/local/bin/hey; \
