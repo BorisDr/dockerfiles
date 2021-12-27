@@ -47,6 +47,7 @@ RUN set -ex; \
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"; \
   curl "https://releases.hashicorp.com/vault/1.7.1/vault_1.7.1_linux_amd64.zip" -o "vault_1.7.1_linux_amd64.zip"; \
   wget -qO- "https://get.helm.sh/helm-v3.5.4-linux-amd64.tar.gz" | tar xz -C tmp/ ;\
+  wget -qO- "https://github.com/fullstorydev/grpcurl/releases/download/v1.8.5/grpcurl_1.8.5_linux_x86_64.tar.gz" | tar xz -C tmp/ ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-shell_4.4.4_amd64.deb" -O /tmp/mongodb-org-shell_4.4.4_amd64.deb ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-tools_4.4.4_amd64.deb" -O /tmp/mongodb-org-tools_4.4.4_amd64.deb ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-database-tools_100.3.0_amd64.deb" -O /tmp/mongodb-database-tools_100.3.0_amd64.deb ;\
@@ -56,6 +57,7 @@ RUN set -ex; \
   dpkg -i /tmp/mongodb-org-shell_4.4.4_amd64.deb ;\
   dpkg -i /tmp/mongodb-org-tools_4.4.4_amd64.deb ;\
   mv tmp/linux-amd64/helm /usr/local/bin/ ;\
+  mv tmp/grpcurl /usr/local/bin/ ;\
   rm -rf tmp ;\
   unzip awscliv2.zip; \
   unzip vault_1.7.1_linux_amd64.zip; \

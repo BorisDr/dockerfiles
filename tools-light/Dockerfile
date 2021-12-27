@@ -44,6 +44,8 @@ RUN set -ex; \
 	mkdir tmp ;\
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"; \
   curl "https://releases.hashicorp.com/vault/1.7.1/vault_1.7.1_linux_amd64.zip" -o "vault_1.7.1_linux_amd64.zip"; \
+  wget -qO- "https://github.com/fullstorydev/grpcurl/releases/download/v1.8.5/grpcurl_1.8.5_linux_x86_64.tar.gz" | tar xz -C tmp/ ;\
+  mv tmp/grpcurl /usr/local/bin/ ;\
   rm -rf tmp ;\
   unzip awscliv2.zip; \
   unzip vault_1.7.1_linux_amd64.zip; \
