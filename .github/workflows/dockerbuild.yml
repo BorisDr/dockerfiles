@@ -2,8 +2,7 @@ name: build tools
 
 on:
   push:
-    paths:
-      - tools/**
+    branches: [master, develop]
 
 jobs:
   tools:
