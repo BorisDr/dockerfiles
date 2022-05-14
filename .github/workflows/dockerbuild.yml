@@ -6,7 +6,7 @@ on:
       - tools/**
 
 jobs:
-  main:
+  tools:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,6 +36,39 @@ jobs:
           context: tools
           file: tools/Dockerfile
           tags: borisdr/tools:latest
+      -
+        name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+  light:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools-light
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          context: tools-light
+          file: tools-light/Dockerfile
+          tags: borisdr/tools-light:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
