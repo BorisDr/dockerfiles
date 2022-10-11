@@ -50,7 +50,7 @@ RUN set -ex; \
   wget -qO- "https://github.com/fullstorydev/grpcurl/releases/download/v1.8.5/grpcurl_1.8.5_linux_x86_64.tar.gz" | tar xz -C tmp/ ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-shell_4.4.9_amd64.deb" -O /tmp/mongodb-org-shell_4.4.9_amd64.deb ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-tools_4.4.9_amd64.deb" -O /tmp/mongodb-org-tools_4.4.9_amd64.deb ;\
-  wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-database-tools_100.6.0_amd64.deb" -O /tmp/mongodb-database-tools_100.3.0_amd64.deb ;\
+  wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-database-tools_100.6.0_amd64.deb" -O /tmp/mongodb-database-tools_100.6.0_amd64.deb ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-database-tools-extra_4.4.9_amd64.deb" -O /tmp/mongodb-org-database-tools-extra_4.4.9_amd64.deb ;\
   wget -qO- "https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongosh_0.12.1_amd64.deb" -O /tmp/mongosh_0.12.1_amd64.deb ;\
   dpkg -i /tmp/mongodb-database-tools_100.6.0_amd64.deb ;\
