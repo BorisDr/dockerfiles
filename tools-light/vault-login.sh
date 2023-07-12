@@ -7,6 +7,9 @@ echo "Specify Vault URL
 vault-nonprd.devops.pluto.tv
 vault-preprod.devops.pluto.tv
 vault-prod.devops.pluto.tv"
+vault-ent-preprod.devops.pluto.tv:8200
+vault-ent-prod.devops.pluto.tv:8200
+
 read DOMAIN
 
 echo "Specify Vault auth backend"
