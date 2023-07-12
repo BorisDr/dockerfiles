@@ -26,6 +26,7 @@ FROM debian:buster
 LABEL maintainer="Boris <borisdr@gmail.com>"
 WORKDIR /root
 COPY README /root/
+COPY vault-login.sh /usr/local/bin/vault-login
 COPY --from=builder /tmp/sslscan/sslscan /usr/local/bin/sslscan
 COPY --from=builder /tmp/redis/redis-6.2.12/src/redis-cli /usr/local/bin/redis-cli
 COPY --from=builder /tmp/redis/redis-6.2.12/src/redis-benchmark /usr/local/bin/redis-benchmark

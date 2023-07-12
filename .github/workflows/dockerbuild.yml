@@ -33,7 +33,6 @@ jobs:
         with:
           push: true
           context: tools
-          platforms: linux/amd64,linux/arm64
           file: tools/Dockerfile
           tags: borisdr/tools:latest
       -
@@ -66,7 +65,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          platforms: linux/amd64,linux/arm64
           context: tools-light
           file: tools-light/Dockerfile
           tags: borisdr/tools-light:latest
