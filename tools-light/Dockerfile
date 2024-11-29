@@ -13,7 +13,7 @@ RUN set -ex; \
     cd /tmp/redis/redis-6.2.12 ;\
     make
 
-FROM debian:buster
+FROM debian:bullseye
 LABEL maintainer="Boris <borisdr@gmail.com>"
 WORKDIR /root
 COPY README /root/
