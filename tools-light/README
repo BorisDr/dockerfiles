@@ -1,3 +1,0 @@
-KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-export VAULT_ADDR="https://vault.cloud.ormi.dev"
-curl --request POST --data '{"jwt": "'"$KUBE_TOKEN"'", "role": "default-service-role"}' https://vault.cloud.ormi.dev/v1/auth/cluster-dev-01/login | jq
