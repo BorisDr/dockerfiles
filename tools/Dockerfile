@@ -42,7 +42,10 @@ RUN set -ex; \
     curl -sSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"; \
     wget -qO- "https://github.com/fullstorydev/grpcurl/releases/download/v1.8.7/grpcurl_1.8.7_linux_x86_64.tar.gz" | tar xz -C tmp/; \
     mv tmp/grpcurl /usr/local/bin/; \
-    rm -rf tmp; \
+    wget -q "https://releases.hashicorp.com/vault/1.21.2/vault_1.21.2_linux_amd64.zip" -O "vault.zip"; \
+    unzip -q vault.zip -d tmp/; \
+    mv tmp/vault /usr/local/bin/; \
+    rm -rf tmp vault.zip; \
     unzip -q awscliv2.zip; \
     ./aws/install; \
     rm -rf aws awscliv2.zip; \
