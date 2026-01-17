@@ -16,7 +16,7 @@ RUN set -ex; \
 FROM debian:trixie-slim
 LABEL maintainer="Boris <borisdr@gmail.com>"
 WORKDIR /root
-# COPY README /root/
+COPY README /root/
 COPY --from=builder /tmp/sslscan/sslscan /usr/local/bin/sslscan
 COPY --from=builder /tmp/redis/redis-stable/src/redis-cli /usr/local/bin/redis-cli
 # COPY --from=builder /tmp/redis/redis-6.2.12/src/redis-benchmark /usr/local/bin/redis-benchmark

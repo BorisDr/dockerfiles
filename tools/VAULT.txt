@@ -1,1 +1,0 @@
-export VAULT_ADDR="https://vault.cd.aa.paramount.tech"
